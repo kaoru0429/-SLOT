@@ -1,15 +1,18 @@
 import React, { useEffect, useRef } from 'react';
-import { TimelineEvent } from '../types';
+import { TimelineEvent, Order } from '../types';
+import { useAppContext } from '../context/AppContext';
 
 declare const L: any; // Using Leaflet from CDN
 
 interface TrackingMapProps {
   events: TimelineEvent[];
+  order: Order;
 }
 
-const TrackingMap: React.FC<TrackingMapProps> = ({ events }) => {
+const TrackingMap: React.FC<TrackingMapProps> = ({ events, order }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
+  const { t } = useAppContext();
 
   useEffect(() => {
     if (mapContainerRef.current && !mapRef.current) {
@@ -44,11 +47,22 @@ const TrackingMap: React.FC<TrackingMapProps> = ({ events }) => {
         });
         
         const marker = L.marker(event.coordinates, { icon: markerIcon }).addTo(mapRef.current);
-        marker.bindPopup(`<b>${event.location}</b><br>${event.description}`);
+        const popupContent = `
+          <div style="font-family: sans-serif; font-size: 14px; line-height: 1.5;">
+            <p style="font-weight: bold; margin: 0 0 4px 0; font-size: 16px;">${event.location}</p>
+            <p style="margin: 0 0 8px 0; color: #555;">${event.description}</p>
+            <hr style="border: 0; border-top: 1px solid #ddd; margin: 8px 0;">
+            <p style="font-weight: bold; margin: 0 0 4px 0;">${t('shipmentDetails')}</p>
+            <p style="margin: 0;"><b>${t('popupRecipient')}:</b> ${order.recipient.name}</p>
+            <p style="margin: 0;"><b>${t('popupWeight')}:</b> ${order.cargo.weight} kg</p>
+            <p style="margin: 0;"><b>${t('popupValue')}:</b> ${order.cargo.declaredValue} ${order.cargo.currency}</p>
+          </div>
+        `;
+        marker.bindPopup(popupContent);
       });
     }
 
-  }, [events]);
+  }, [events, order, t]);
 
   return (
     <>

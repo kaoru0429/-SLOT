@@ -70,6 +70,7 @@ export const locales = {
     created: "Created",
     actions: "Actions",
     view: "View",
+    trackOnMap: "Track on Map",
 
     // Order Tracking
     trackingOrderTitle: "Tracking Order",
@@ -78,6 +79,11 @@ export const locales = {
     shipmentJourney: "Shipment Journey",
     orderDetails: "Order Details",
     trackingHistory: "Tracking History",
+    simulateWaybillExchange: "Simulate Waybill Exchange",
+    shipmentDetails: "Shipment Details",
+    popupRecipient: "Recipient",
+    popupWeight: "Weight",
+    popupValue: "Value",
 
     // Documents
     documentsTitle: "Document Management",
@@ -155,12 +161,22 @@ export const locales = {
     clearPlan: "Clear Plan",
 
     // Customs
-    customsTitle: "Customs Clearance (Export)",
+    customsTitle: "Customs Clearance",
+    exportClearance: "Export Clearance (Chengdu)",
+    importClearance: "Import Clearance (Antwerp)",
     pendingQueue: "Pending Queue",
     reviewDocuments: "Review Documents",
     approveClearance: "Approve for Clearance",
+    approveEUClearance: "Approve EU Clearance",
     selectOrderToReview: "Select an order to review.",
     verified: "Verified",
+    commercialInvoice: "Commercial Invoice",
+    packingList: "Packing List",
+    docStatus_PENDING: "Pending",
+    docStatus_VERIFIED: "Verified",
+    docStatus_NEEDS_REVIEW: "Needs Review",
+    markVerified: "Mark Verified",
+    flagForReview: "Flag for Review",
     
     // Train Management
     trainMgmtTitle: "Train Management",
@@ -237,6 +253,7 @@ export const locales = {
     status_WAYBILL_EXCHANGE: "Waybill Exchange (Poland)",
     status_ARRIVED_ANTWERP: "Arrived Antwerp",
     status_EU_CUSTOMS_CLEARING: "EU Customs Clearing",
+    status_EU_CUSTOMS_CLEARED: "Customs Cleared (Destination)",
     status_AT_DISTRIBUTION_CENTER: "At Distribution Center",
     status_OUT_FOR_DELIVERY: "Out for Delivery",
     status_DELIVERED: "Delivered",
@@ -320,6 +337,7 @@ export const locales = {
     created: "建立日期",
     actions: "操作",
     view: "查看",
+    trackOnMap: "地圖追蹤",
 
     // Order Tracking
     trackingOrderTitle: "追蹤訂單",
@@ -328,6 +346,11 @@ export const locales = {
     shipmentJourney: "貨運旅程",
     orderDetails: "訂單詳情",
     trackingHistory: "追蹤歷史",
+    simulateWaybillExchange: "模擬換單事件",
+    shipmentDetails: "貨運詳情",
+    popupRecipient: "收件人",
+    popupWeight: "重量",
+    popupValue: "價值",
 
     // Documents
     documentsTitle: "文件管理",
@@ -404,12 +427,22 @@ export const locales = {
     clearPlan: "清除計畫",
 
     // Customs
-    customsTitle: "出口報關",
+    customsTitle: "海關清關",
+    exportClearance: "出口報關 (成都)",
+    importClearance: "進口清關 (安特衛普)",
     pendingQueue: "待處理佇列",
     reviewDocuments: "審核文件",
     approveClearance: "批准清關",
+    approveEUClearance: "批准歐盟清關",
     selectOrderToReview: "選擇一個訂單進行審核。",
     verified: "已驗證",
+    commercialInvoice: "商業發票",
+    packingList: "裝箱單",
+    docStatus_PENDING: "待處理",
+    docStatus_VERIFIED: "已驗證",
+    docStatus_NEEDS_REVIEW: "需複核",
+    markVerified: "標記為已驗證",
+    flagForReview: "標記需複核",
 
     // Train Management
     trainMgmtTitle: "班列管理",
@@ -473,7 +506,7 @@ export const locales = {
     q3: "如何在歐洲實現48小時送達？",
     a3: "班列抵達安特衛普後，包裹會被卸載到我們的中央分撥中心。它們會立即被分揀並調度到我們遍布歐洲的公路和鐵路網絡。48小時的目標適用於西歐主要經濟中心。",
     q4: "海關代碼「9810」是什麼意思？",
-    a4: "海關代碼「9810」指的是「跨境電商出口海外倉」。此模式允許賣家在最終客戶購買前，將貨物批量運送到我們的安特衛普倉庫。當歐洲客戶下單時，訂單將直接從安特衛普倉庫履行，從而實現快速交付。這是我們專列服務的主要模式。",
+a4: "海關代碼「9810」指的是「跨境電商出口海外倉」。此模式允許賣家在最終客戶購買前，將貨物批量運送到我們的安特衛普倉庫。當歐洲客戶下單時，訂單將直接從安特衛普倉庫履行，從而實現快速交付。這是我們專列服務的主要模式。",
     
     // Statuses
     status_ORDER_CREATED: "訂單已建立",
@@ -486,6 +519,7 @@ export const locales = {
     status_WAYBILL_EXCHANGE: "換單中 (波蘭)",
     status_ARRIVED_ANTWERP: "已抵達安特衛普",
     status_EU_CUSTOMS_CLEARING: "歐盟清關中",
+    status_EU_CUSTOMS_CLEARED: "進口清關完成",
     status_AT_DISTRIBUTION_CENTER: "已入分撥中心",
     status_OUT_FOR_DELIVERY: "配送中",
     status_DELIVERED: "已送達",

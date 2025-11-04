@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../context/AppContext';
 import { GoogleGenAI } from '@google/genai';
 
@@ -8,6 +9,7 @@ const ConsolidationHub: React.FC = () => {
   const [scanInput, setScanInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [consolidationPlan, setConsolidationPlan] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleScan = () => {
     const order = orders.find(o => o.trackingNumber === scanInput && o.status === 'ORDER_CREATED');
@@ -158,6 +160,7 @@ Instructions:
                         <th className="px-6 py-3 text-left text-xs font-medium text-dpd-dark-gray uppercase">{t('trackingNumber')}</th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-dpd-dark-gray uppercase">{t('destination')}</th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-dpd-dark-gray uppercase">{t('weight')}</th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-dpd-dark-gray uppercase">{t('actions')}</th>
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -166,6 +169,14 @@ Instructions:
                             <td className="px-6 py-4 text-sm font-medium text-dpd-dark-gray">{order.trackingNumber}</td>
                             <td className="px-6 py-4 text-sm text-dpd-dark-gray">{order.recipient.country}</td>
                             <td className="px-6 py-4 text-sm text-dpd-dark-gray">{order.cargo.weight}kg</td>
+                            <td className="px-6 py-4 text-sm font-medium">
+                                <button 
+                                    onClick={() => navigate(`/seller/tracking/${order.trackingNumber}`)} 
+                                    className="text-dpd-red hover:text-dpd-red-dark"
+                                >
+                                    {t('trackOnMap')}
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
