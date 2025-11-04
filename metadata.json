@@ -1,0 +1,5 @@
+{
+  "name": "DPD Cross-Border Logistics Platform",
+  "description": "A comprehensive, multilingual dashboard for sellers, operations, and customer service to manage the DPD cross-border e-commerce logistics from Chengdu to Antwerp. It provides functionalities for order creation, real-time tracking with maps, hub management, customs clearance, and customer support in both English and Chinese.",
+  "requestFramePermissions": []
+}
